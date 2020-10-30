@@ -6,7 +6,7 @@ import 'dart:async';
 ///
 /// 本模块函数，加载状态类组件HomePageState
 class HomePage extends StatefulWidget {
-  final String prefix = '当前时间';
+  final String prefix = '当前时间是';
 
   @override
   createState() => HomePageState();
