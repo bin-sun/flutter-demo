@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 ///
 /// 包括点赞组件icon，以及组件点击效果
 /// 需要外部参数[likeNum]，点赞数量
-class ArticleLikeBar extends StatefulWidget{
+class ArticleLikeBar extends StatefulWidget {
   /// 外部传入参数
   final int likeNum;
 
@@ -38,7 +38,11 @@ class ArticleLikeBarState extends State<ArticleLikeBar> {
     // TODO: implement build
     return Row(
       children: <Widget>[
-        Icon(Icons.thumb_up, color: Colors.grey, size: 18,),
+        Icon(
+          Icons.thumb_up,
+          color: Colors.grey,
+          size: 18,
+        ),
         Padding(padding: EdgeInsets.only(left: 10)),
         FlatButton(
           child: Text('$likeNum'),
