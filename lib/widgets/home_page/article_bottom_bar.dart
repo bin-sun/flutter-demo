@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_app_test/styles/text_styles.dart';
+
 /// 帖子下面的信息栏
 ///
 /// 包括用户头像、昵称和评论信息，但不包括点赞，因为点赞为动态组件
@@ -9,14 +11,14 @@ class ArticleBottomBar extends StatelessWidget {
   final String nickname;
 
   /// 用户头像
-  final String headerImg;
+  final String headerImage;
 
   /// 评论数量
   final int commentNum;
 
   /// 构造函数
   const ArticleBottomBar(
-      {Key key, this.nickname, this.headerImg, this.commentNum})
+      {Key key, this.nickname, this.headerImage, this.commentNum})
       : super(key: key);
 
   /// 帖子栏中的用户头像和昵称信息
@@ -24,12 +26,16 @@ class ArticleBottomBar extends StatelessWidget {
     return Row(
       children: <Widget>[
         Image.network(
-          headerImg,
+          headerImage,
           width: 15.0,
           height: 15.0,
           fit: BoxFit.cover,
         ),
-        Text(nickname),
+        Padding(padding: EdgeInsets.only(left: 10)),
+        Text(
+          nickname,
+          style: TextStyles.commonStyle(),
+        ),
       ],
     );
   }
@@ -40,7 +46,10 @@ class ArticleBottomBar extends StatelessWidget {
       children: <Widget>[
         Icon(Icons.comment, color: Colors.grey, size: 18),
         Padding(padding: EdgeInsets.only(left: 10)),
-        Text('$commentNum'),
+        Text(
+          '$commentNum',
+          style: TextStyles.commonStyle(),
+        ),
       ],
     );
   }
