@@ -85,6 +85,9 @@ class HomePage extends StatelessWidget {
       20,
       30);
 
+  /// 构造函数
+  // const HomePage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
