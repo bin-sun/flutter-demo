@@ -31,7 +31,7 @@ class Entrance extends StatefulWidget {
 ///
 /// 入口文件
 class _EntranceState extends State<Entrance>
-  with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   TabController _controller;
 
   UniLinksTpye _tpye = UniLinksTpye.string;
@@ -83,6 +83,7 @@ class _EntranceState extends State<Entrance>
     if (link == null) {
       return;
     }
+    print('link--- ${link}');
     int indexNum = router.open(context, link);
     if (indexNum > -1 && _controller.index != indexNum) {
       _controller.animateTo(indexNum);
@@ -90,7 +91,7 @@ class _EntranceState extends State<Entrance>
   }
 
   @override
-  void dispose()  {
+  void dispose() {
     super.dispose();
 
     _controller.dispose();
@@ -108,30 +109,26 @@ class _EntranceState extends State<Entrance>
             icon: Icon(Icons.search),
             onPressed: () {
               showSearch(
-                  context: context, delegate: SearchPageCustomDelegate()
-              );
+                  context: context, delegate: SearchPageCustomDelegate());
             },
           )
         ],
-        bottom: TabBar(
-          controller: _controller,
-          tabs: <Widget>[
-            Tab(
-              icon: Icon(Icons.view_list),
-              text: '推荐',
-            ),
-            Tab(
-              icon: Icon(Icons.favorite),
-              text: '关注',
-            ),
-            Tab(
-              icon: Icon(Icons.person),
-              text: '我',
-            )
-          ]
-        ),
+        bottom: TabBar(controller: _controller, tabs: <Widget>[
+          Tab(
+            icon: Icon(Icons.view_list),
+            text: '推荐',
+          ),
+          Tab(
+            icon: Icon(Icons.favorite),
+            text: '关注',
+          ),
+          Tab(
+            icon: Icon(Icons.person),
+            text: '我',
+          )
+        ]),
       ),
-      drawer: MenuDraw(redirect),
+      // drawer: MenuDraw(redirect), // 侧边导航栏
       body: TabBarView(
         controller: _controller,
         children: [

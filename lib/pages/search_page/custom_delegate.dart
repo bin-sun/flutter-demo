@@ -52,11 +52,10 @@ class SearchPageCustomDelegate extends SearchDelegate {
     // TODO: implement appBarTheme
     final ThemeData theme = Theme.of(context);
     return theme.copyWith(
-      inputDecorationTheme: InputDecorationTheme(),
-      primaryColor: theme.primaryColor,
-      primaryIconTheme: theme.primaryIconTheme,
-      primaryColorBrightness: theme.primaryColorBrightness,
-      primaryTextTheme: theme.primaryTextTheme
-    );
+        inputDecorationTheme: InputDecorationTheme(),
+        primaryColor: theme.primaryColor,
+        primaryIconTheme: theme.primaryIconTheme,
+        primaryColorBrightness: theme.primaryColorBrightness,
+        primaryTextTheme: theme.primaryTextTheme);
   }
 }

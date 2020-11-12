@@ -9,7 +9,7 @@ import 'package:flutter_app_test/pages/user_page/index.dart';
 import 'package:flutter_app_test/util/struct/router_struct.dart';
 
 /// app 协议头
-const String appScheme = "testapp";
+const String appScheme = "tyapp";
 
 /// 路由配置信息
 /// widget 为组件
@@ -17,7 +17,7 @@ const String appScheme = "testapp";
 /// params 为组件需要的参数数组
 const Map<String, RouterStruct> routerMapping = {
   'homepage': RouterStruct(HomePageIndex(), 0, null),
-  'userpage': RouterStruct(UserPageIndex(), 2, ['userId']),
+  'userpage': RouterStruct(UserPageIndex(userId: '我',), 2, ['userId']),
   'default': RouterStruct(HomePageIndex(), 0, null)
 };
 
@@ -48,12 +48,12 @@ class Router {
     }
 
     Navigator.pushNamedAndRemoveUntil(context, urlParseRet['action'].toString(),
-            (route) {
-          if (route.settings.name == urlParseRet['action'].toString()) {
-            return false;
-          }
-          return true;
-        }, arguments: urlParseRet['params']);
+        (route) {
+      if (route.settings.name == urlParseRet['action'].toString()) {
+        return false;
+      }
+      return true;
+    }, arguments: urlParseRet['params']);
     // 执行跳转，非首页
     return notEntrancePageIndex;
   }
@@ -65,6 +65,7 @@ class Router {
     }
 
     int placeIndex = url.indexOf('?');
+    print('place ${placeIndex}');
 
     if (url == '' || url == null) {
       return {'action': 'default', 'params': null};
@@ -118,6 +119,7 @@ class Router {
       routerInfo[routerName.toString()] =
           (context) => _buildPage(routerData.widget);
     });
+    print(routerInfo);
     return routerInfo;
   }
 
@@ -131,5 +133,4 @@ class Router {
     }
     return pageWidget;
   }
-
 }

@@ -23,7 +23,7 @@ class MenuDraw extends StatelessWidget {
                 title: Text('推荐'),
                 onTap: () {
                   Navigator.pop(context);
-                  redirect('testapp://homepage');
+                  redirect('homepage');
                 },
               ),
               ListTile(
@@ -39,12 +39,11 @@ class MenuDraw extends StatelessWidget {
                 title: Text('我'),
                 onTap: () {
                   Navigator.pop(context);
-                  redirect('testapp://userpage');
+                  redirect('userpage');
                 },
               )
             ],
-          )
-      ),
+          )),
     );
   }
 }

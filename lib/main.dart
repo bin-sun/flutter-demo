@@ -6,14 +6,14 @@ import 'package:flutter_app_test/model/like_num_model.dart';
 import 'package:flutter_app_test/pages/home_page.dart';
 // import 'package:flutter_app_test/pages/test_stateful_widget.dart';
 
-import 'package:flutter_app_test/pages/entrance_top_bar.dart';
+// import 'package:flutter_app_test/pages/entrance_top_bar.dart';
+import 'package:flutter_app_test/pages/entrance_bottom_bar.dart';
 
 /// App 核心入口
 void main() => runApp(MyApp());
 
 /// App 核心入口界面
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

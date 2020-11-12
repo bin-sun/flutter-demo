@@ -12,14 +12,18 @@ class UserPageIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /*获取传递过来的参数*/
+    Object _people = ModalRoute.of(context).settings.arguments;
+
+    print('_people------- ${_people}');
     String myUserId = userId;
     if (ModalRoute.of(context).settings.arguments != null) {
       Map dataInfo =
-      JsonConfig.objectToMap(ModalRoute.of(context).settings.arguments);
+          JsonConfig.objectToMap(ModalRoute.of(context).settings.arguments);
       myUserId = dataInfo['userId'].toString();
     }
 
     // TODO: implement build
-    return Text('I am use page ${myUserId}');
+    return Text('个人中心 ${myUserId}');
   }
 }
