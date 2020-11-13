@@ -25,17 +25,20 @@ class ArticleBottomBar extends StatelessWidget {
   Widget getUserWidget() {
     return Row(
       children: <Widget>[
-        Image.network(
-          headerImage,
-          width: 15.0,
-          height: 15.0,
-          fit: BoxFit.cover,
+        ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: Image.network(
+            headerImage,
+            width: 28.0,
+            height: 28.0,
+            fit: BoxFit.cover,
+          ),
         ),
-        Padding(padding: EdgeInsets.only(left: 10)),
+        Padding(padding: EdgeInsets.only(left: 10),),
         Text(
           nickname,
           style: TextStyles.commonStyle(),
-        ),
+        )
       ],
     );
   }
@@ -58,7 +61,17 @@ class ArticleBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Row(
-      children: <Widget>[getUserWidget(), getCommentWidget()],
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        Expanded(
+          flex: 8,
+          child: getUserWidget(),
+        ),
+        Expanded(
+          flex: 2,
+          child: getCommentWidget(),
+        )
+      ],
     );
   }
 }

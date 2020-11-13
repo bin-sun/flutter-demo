@@ -95,10 +95,9 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           BannerInfo(bannerImage: bannerImage),
-          ArticleCard(
-            userInfo: userInfo,
-            articleInfo: articleInfo,
-          )
+          // ArticleCard(
+          //   articleInfo: articleInfo,
+          // )
         ],
       ),
     );

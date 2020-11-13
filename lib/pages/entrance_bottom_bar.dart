@@ -31,7 +31,7 @@ class Entrance extends StatefulWidget {
 ///
 /// 入口文件
 class _EntranceState extends State<Entrance>
-  with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   int _indexNum = 0;
 
   UniLinksType _type = UniLinksType.string;
@@ -43,7 +43,7 @@ class _EntranceState extends State<Entrance>
     super.initState();
     // scheme初始化，保证有上下文，需要跳转页面
     initPlatformState();
-    if(widget.indexValue !=null) {
+    if (widget.indexValue != null) {
       _indexNum = widget.indexValue;
     }
   }
@@ -108,8 +108,7 @@ class _EntranceState extends State<Entrance>
             icon: Icon(Icons.search),
             onPressed: () {
               showSearch(
-                  context: context,
-                  delegate: SearchPageCustomDelegate());
+                  context: context, delegate: SearchPageCustomDelegate());
             },
           )
         ],
@@ -161,7 +160,7 @@ class _EntranceState extends State<Entrance>
   /// 获取页面组件
   Widget _getPagesWidget(int index) {
     List<Widget> widgetList = [
-      router.getPageByRouter('homepage'),
+      router.getPageByRouter('homepageindex'),
       Icon(Icons.directions_transit),
       router.getPageByRouter('userpage'),
     ];

@@ -14,17 +14,25 @@ void main() => runApp(MyApp());
 
 /// App 核心入口界面
 class MyApp extends StatelessWidget {
+  final likeNumModel = LikeNumModel();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'flutter',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      routes: Router().registerRouter(),
-      home: Entrance(),
-    );
+    return Provider<Map<String, int>>.value(
+        value: {},
+        child: ChangeNotifierProvider.value(
+          value: likeNumModel,
+          child: MaterialApp(
+            title: 'flutter Demo',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              primarySwatch: Colors.blue
+            ),
+            routes: Router().registerRouter(),
+            home: Entrance(),
+          ),
+        ),
+        );
   }
 }
 

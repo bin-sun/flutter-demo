@@ -5,6 +5,7 @@ import 'package:flutter_app_test/pages/common/web_view_page.dart';
 import 'package:flutter_app_test/pages/home_page/index.dart';
 import 'package:flutter_app_test/pages/article_detail.dart';
 import 'package:flutter_app_test/pages/user_page/index.dart';
+import 'package:flutter_app_test/pages/article_detail/index.dart';
 
 import 'package:flutter_app_test/util/struct/router_struct.dart';
 
@@ -16,9 +17,10 @@ const String appScheme = "tyapp";
 /// entranceIndex 为首页位置，如果非首页则为-1
 /// params 为组件需要的参数数组
 const Map<String, RouterStruct> routerMapping = {
-  'homepage': RouterStruct(HomePageIndex(), 0, null),
+  'homepageindex': RouterStruct(HomePageIndex(), 0, null),
   'userpage': RouterStruct(UserPageIndex(userId: '我',), 2, ['userId']),
-  'default': RouterStruct(HomePageIndex(), 0, null)
+  'contentpage': RouterStruct(ArticleDetailIndex(), -1, ['articledId']),
+  'default': RouterStruct(HomePageIndex(), 0, null),
 };
 
 /// 处理APP内的跳转
