@@ -20,6 +20,7 @@ class ArticleDetailIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('id---------- ${articleId}');
     // TODO: implement build
     String id = articleId;
     if (articleId == null &&
@@ -33,6 +34,8 @@ class ArticleDetailIndex extends StatelessWidget {
     }
 
     ContentDetailStruct articleInfo = ApiContentIndex().getOneById(id);
+
+    print('articleInfo-------- ${articleInfo.likeNum}');
 
     return Column(
       children: <Widget>[

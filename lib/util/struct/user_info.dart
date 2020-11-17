@@ -16,5 +16,5 @@ class UserInfoStructTwo {
   final String uid;
 
   /// 默认构造函数
-  const UserInfoStructTwo(this.nickname, this.headerUrl, this.uid);
+  const UserInfoStructTwo(this.uid, this.nickname, this.headerUrl);
 }

@@ -22,6 +22,7 @@ class ArticleDetailLike extends StatelessWidget {
   /// 有状态类返回组件信息
   @override
   Widget build(BuildContext context) {
+    print('content----------${context}');
     // TODO: implement build
     final likeNumModel = Provider.of<LikeNumModel>(context);
 

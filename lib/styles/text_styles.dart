@@ -8,9 +8,10 @@ class TextStyles {
   static double baseFontSize = 18.0;
 
   /// 主页内容的bottom bar下的样式
-  static TextStyle commonStyle([double multipleFontSize = 1]) {
+  static TextStyle commonStyle(
+      [double multipleFontSize = 1, Color myColor = Colors.lightBlueAccent]) {
     return TextStyle(
-        color: Colors.lightBlueAccent,
+        color: myColor,
         fontSize: baseFontSize * multipleFontSize,
         letterSpacing: 1,
         wordSpacing: 2,

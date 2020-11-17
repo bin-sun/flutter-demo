@@ -19,7 +19,7 @@ const String appScheme = "tyapp";
 const Map<String, RouterStruct> routerMapping = {
   'homepageindex': RouterStruct(HomePageIndex(), 0, null),
   'userpage': RouterStruct(UserPageIndex(userId: '我',), 2, ['userId']),
-  'contentpage': RouterStruct(ArticleDetailIndex(), -1, ['articledId']),
+  'contentpage': RouterStruct(ArticleDetailIndex(), -1, ['articleId']),
   'default': RouterStruct(HomePageIndex(), 0, null),
 };
 
@@ -43,6 +43,8 @@ class Router {
     }
     Map<String, dynamic> urlParseRet = _parseUrl(url);
 
+    print('---------------------${urlParseRet}');
+
     int entranceIndex = routerMapping[urlParseRet['action']].entranceIndex;
     if (entranceIndex > notEntrancePageIndex) {
       // 判断为首页，返回切换的tab信息
@@ -50,12 +52,12 @@ class Router {
     }
 
     Navigator.pushNamedAndRemoveUntil(context, urlParseRet['action'].toString(),
-        (route) {
-      if (route.settings.name == urlParseRet['action'].toString()) {
-        return false;
-      }
-      return true;
-    }, arguments: urlParseRet['params']);
+            (route) {
+          if (route.settings.name == urlParseRet['action'].toString()) {
+            return false;
+          }
+          return true;
+        }, arguments: urlParseRet['params']);
     // 执行跳转，非首页
     return notEntrancePageIndex;
   }
@@ -63,11 +65,11 @@ class Router {
   /// 解析跳转的url，并且分析其内部参数
   Map<String, dynamic> _parseUrl(String url) {
     if (url.startsWith(appScheme)) {
-      url = url.substring(9);
+      url = url.substring(8);
+      print('---------------------${url}');
     }
 
     int placeIndex = url.indexOf('?');
-    print('place ${placeIndex}');
 
     if (url == '' || url == null) {
       return {'action': 'default', 'params': null};
@@ -104,7 +106,7 @@ class Router {
         appBar: AppBar(
           title: Text('Two You'), // 页面名字
         ),
-        body: Center(
+        body: Container(
           child: widgetPage,
         ));
   }
@@ -121,7 +123,6 @@ class Router {
       routerInfo[routerName.toString()] =
           (context) => _buildPage(routerData.widget);
     });
-    print(routerInfo);
     return routerInfo;
   }
 

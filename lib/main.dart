@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print('likeNumModel---------${likeNumModel}');
     return Provider<Map<String, int>>.value(
         value: {},
         child: ChangeNotifierProvider.value(
