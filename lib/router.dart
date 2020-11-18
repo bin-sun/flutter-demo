@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_test/pages/common/web_view_page.dart';
 
 import 'package:flutter_app_test/pages/home_page/index.dart';
+import 'package:flutter_app_test/pages/home_page/single.dart';
 import 'package:flutter_app_test/pages/article_detail.dart';
 import 'package:flutter_app_test/pages/user_page/index.dart';
 import 'package:flutter_app_test/pages/article_detail/index.dart';
+import 'pages/home_page/img_flow.dart';
 
 import 'package:flutter_app_test/util/struct/router_struct.dart';
 
@@ -21,6 +23,8 @@ const Map<String, RouterStruct> routerMapping = {
   'userpage': RouterStruct(UserPageIndex(userId: '我',), 2, ['userId']),
   'contentpage': RouterStruct(ArticleDetailIndex(), -1, ['articleId']),
   'default': RouterStruct(HomePageIndex(), 0, null),
+  'imgflow': RouterStruct(HomePageImgFlow(), -1, null),
+  'singlepage': RouterStruct(HomePageSingle(), -1, null),
 };
 
 /// 处理APP内的跳转
@@ -104,7 +108,7 @@ class Router {
   Widget _buildPage(Widget widgetPage) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Two You'), // 页面名字
+          title: Text('测试Flutter'), // 页面名字
         ),
         body: Container(
           child: widgetPage,

@@ -23,7 +23,7 @@ class MenuDraw extends StatelessWidget {
                 title: Text('推荐'),
                 onTap: () {
                   Navigator.pop(context);
-                  redirect('homepage');
+                  redirect('tyapp://imgflow');
                 },
               ),
               ListTile(
@@ -31,7 +31,7 @@ class MenuDraw extends StatelessWidget {
                 title: Text('关注'),
                 onTap: () {
                   Navigator.pop(context);
-                  Router().open(context, 'http://www.baidu.com');
+                  Router().open(context, 'tyapp://singlepage');
                 },
               ),
               ListTile(
@@ -39,7 +39,7 @@ class MenuDraw extends StatelessWidget {
                 title: Text('我'),
                 onTap: () {
                   Navigator.pop(context);
-                  redirect('userpage');
+                  redirect('tyfapp://userpage');
                 },
               )
             ],
