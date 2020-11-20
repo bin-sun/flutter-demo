@@ -5,6 +5,11 @@ class ApiUserInfoIndex {
   /// 根据用户id拉取用户信息
   static UserInfoStructTwo getOneById(String id) {
     return UserInfoStructTwo('1001', '测试001',
-        'https://i.pinimg.com/originals/1f/00/27/1f0027a3a80f470bcfa5de596507f9f4.png');
+        'http://ww1.sinaimg.cn/large/c1eff04ely1gkumqqni3gj2069069746.jpg');
+  }
+  /// 根据用户id拉取用户信息
+  static UserInfoStructTwo getSelfUserInfo() {
+    return UserInfoStructTwo('007', '测试001',
+        'http://ww1.sinaimg.cn/large/c1eff04ely1gkumqqni3gj2069069746.jpg');
   }
 }

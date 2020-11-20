@@ -20,7 +20,7 @@ const String appScheme = "tyapp";
 /// params 为组件需要的参数数组
 const Map<String, RouterStruct> routerMapping = {
   'homepageindex': RouterStruct(HomePageIndex(), 0, null),
-  'userpage': RouterStruct(UserPageIndex(userId: '我',), 2, ['userId']),
+  'userpage': RouterStruct(UserPageIndex(), 2, ['userId']),
   'contentpage': RouterStruct(ArticleDetailIndex(), -1, ['articleId']),
   'default': RouterStruct(HomePageIndex(), 0, null),
   'imgflow': RouterStruct(HomePageImgFlow(), -1, null),

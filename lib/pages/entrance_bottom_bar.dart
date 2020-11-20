@@ -3,8 +3,11 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_test/model/new_message_model.dart';
 import 'package:uni_links/uni_links.dart';
+import 'package:provider/provider.dart';
 
+import 'package:flutter_app_test/widgets/common/red_message.dart';
 import 'package:flutter_app_test/pages/search_page/custom_delegate.dart';
 import 'package:flutter_app_test/widgets/menu/draw.dart';
 import 'package:flutter_app_test/router.dart';
@@ -99,6 +102,7 @@ class _EntranceState extends State<Entrance>
 
   @override
   Widget build(BuildContext context) {
+    final newMessageModel = Provider.of<NewMessageModel>(context);
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -134,9 +138,11 @@ class _EntranceState extends State<Entrance>
             activeIcon: Icon(Icons.favorite_border),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: CommonRedMessage.showRedNumWidget(
+                Icon(Icons.person), newMessageModel.value),
             title: Text('我'),
-            activeIcon: Icon(Icons.person_outline),
+            activeIcon: CommonRedMessage.showRedWidget(
+                Icon(Icons.person_outline), newMessageModel.value),
           ),
         ],
         iconSize: 24,

@@ -4,6 +4,8 @@ import 'package:flutter_app_test/api/content/index.dart';
 import 'package:flutter_app_test/util/struct/content_detail_struct.dart';
 import 'package:flutter_app_test/widgets/home_page/img_card.dart';
 
+import 'package:flutter_app_test/util/struct/api_ret_info.dart';
+
 /// 九宫格首页
 class HomePageImgFlow extends StatefulWidget {
   /// 构造函数
@@ -23,7 +25,9 @@ class HomePageImgFlowState extends State<HomePageImgFlow> {
     super.initState();
     // 拉取推荐内容
     setState(() {
-      contentList = ApiContentIndex().getRecommendList();
+      StructApiContentListRetInfo retInfo =
+        ApiContentIndex().getRecommendList();
+      contentList = retInfo.data;
     });
   }
 
