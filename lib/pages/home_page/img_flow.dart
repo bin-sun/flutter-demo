@@ -25,9 +25,11 @@ class HomePageImgFlowState extends State<HomePageImgFlow> {
     super.initState();
     // 拉取推荐内容
     setState(() {
-      StructApiContentListRetInfo retInfo =
-        ApiContentIndex().getRecommendList();
-      contentList = retInfo.data;
+      ApiContentIndex().getRecommendList().then((retInfo) {
+        setState(() {
+          contentList = retInfo.data;
+        });
+      });
     });
   }
 

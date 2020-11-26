@@ -50,4 +50,37 @@ class ContentDetailStruct {
       this.commentNum,
       this.articleImage,
       {this.userInfo});
+
+  /// 将json数据转化为对象数据
+  ContentDetailStruct.fromJson(Map<String, dynamic> json)
+      : id = json['id'] as String,
+        title = json['title'] as String,
+        summary = json['summary'] as String,
+        detailInfo = json['detailInfo'] as String,
+        uid = json['uid'] as String,
+        likeNum = json['likeNum'] as int,
+        userInfo = getUserInfo(json['userInfo'] as Map<String, dynamic>),
+        articleImage = json['articleImage'] as String,
+        commentNum = json['commentNum'] as int;
+
+  /// 将对象转化为json数据
+  static Map<String, dynamic> toJson(ContentDetailStruct contentDetail) => {
+    "id": contentDetail.id,
+    "title": contentDetail.title,
+    "summary": contentDetail.summary,
+    "detailInfo": contentDetail.detailInfo,
+    "uid": contentDetail.uid,
+    "userInfo": UserInfoStructTwo.toJson(contentDetail.userInfo),
+    "articleImage": contentDetail.articleImage,
+    "likeNum": contentDetail.likeNum,
+    "commentNum": contentDetail.commentNum
+  };
+
+  /// 判断用户信息是否存在，存在则处理
+  static UserInfoStructTwo getUserInfo(Map<String, dynamic> userInfo) {
+    if (userInfo == null) {
+      return null;
+    }
+    return UserInfoStructTwo.fromJson(userInfo);
+  }
 }

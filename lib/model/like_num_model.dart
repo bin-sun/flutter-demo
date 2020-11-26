@@ -43,7 +43,7 @@ class LikeNumModel with ChangeNotifier {
       _likeInfo[articleId] = likeNum;
     }
 
-    print('_likeInfo----------${_likeInfo}');
+    // print('_likeInfo----------${_likeInfo}');
 
     return _likeInfo[articleId];
   }

@@ -66,18 +66,19 @@ class HomePageIndexState extends State<HomePageIndex> {
 
   /// 加载下一页
   void loadMoreDate() {
-    StructApiContentListRetInfo retInfo =
-        ApiContentIndex().getRecommendList(lastId);
-    if (retInfo.ret != 0) {
-      return;
-    }
-    List<ContentDetailStruct> netList = retInfo.data;
+    ApiContentIndex().getRecommendList(lastId).then((retInfo) {
+      print('------------${retInfo}');
+      if (retInfo.ret != 0) {
+        return;
+      }
+      List<ContentDetailStruct> newList = retInfo.data;
 
-    setState(() {
-      error = false;
-      isLoading = false;
-      hasMore = retInfo.hasMore;
-      contentList.addAll(netList);
+      setState(() {
+        error = false;
+        isLoading = false;
+        hasMore = retInfo.hasMore;
+        contentList.addAll(newList);
+      });
     });
   }
 
@@ -90,20 +91,21 @@ class HomePageIndexState extends State<HomePageIndex> {
 
   /// 处理首次拉取和刷新数据获取动作
   void setFirstPage() {
-    print('122');
-    StructApiContentListRetInfo retInfo = ApiContentIndex().getRecommendList();
-    setState(() {
+    ApiContentIndex().getRecommendList().then((retInfo) {
+      print('122${retInfo.hasMore}');
       if (retInfo.ret != 0) {
         // 判断是否返回正确
         error = true;
         return;
       }
 
-      error = false;
-      contentList = retInfo.data;
-      hasMore = retInfo.hasMore;
-      isLoading = false;
-      lastId = retInfo.lastId;
+      setState(() {
+        error = false;
+        contentList = retInfo.data;
+        hasMore = retInfo.hasMore;
+        isLoading = false;
+        lastId = retInfo.lastId;
+      });
     });
   }
 
@@ -111,6 +113,9 @@ class HomePageIndexState extends State<HomePageIndex> {
   Widget build(BuildContext context) {
     if (error) {
       return CommonError(action: this.setFirstPage);
+    }
+    if (contentList == null) {
+      return Loading();
     }
     return RefreshIndicator(
       onRefresh: onRefresh,

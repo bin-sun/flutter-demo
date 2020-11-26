@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_app_test/pages/common/web_view_page.dart';
 
+import 'package:flutter_app_test/util/struct/router_struct.dart';
 import 'package:flutter_app_test/pages/home_page/index.dart';
 import 'package:flutter_app_test/pages/home_page/single.dart';
 import 'package:flutter_app_test/pages/article_detail.dart';
@@ -9,7 +10,6 @@ import 'package:flutter_app_test/pages/user_page/index.dart';
 import 'package:flutter_app_test/pages/article_detail/index.dart';
 import 'pages/home_page/img_flow.dart';
 
-import 'package:flutter_app_test/util/struct/router_struct.dart';
 
 /// app 协议头
 const String appScheme = "tyapp";
